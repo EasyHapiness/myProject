@@ -5,5 +5,17 @@ eureka:
     hostname: localhost
   client:
     register-with-eureka: false
+    fetch-registry: false
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+  application:
+    name: eureka-register
+
+# 安全认证的配置
+#security:
+#  basic:
+#    enabled: true
+#  user:
+#    name: yasong  # 用户名
+#    password: yasong   # 用户密码

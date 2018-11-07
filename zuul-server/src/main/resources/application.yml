@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: zuul-server
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8082/eureka
+server:
+  port: 8085
+
+
+jwt:
+  secret: secret
+  expiration: 168
+  notBefore: 120
+
+mypros:
+    urls:
+      - /user/byId
+      - /api/login/checkToken
+      - /test-order/order/findUserById
+      - /test-order/order/findUserByToken
+      - /picture-server/picture/save
+      - /picture-server/picture/info
+      - /picture-server/files
+zuul:
+  routes:
+    picture-server: /picture/**

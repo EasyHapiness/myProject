@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ya.song.pictureserver.mapper.PictureMapper">
+
+    <resultMap id="BaseResultMap" type="com.ya.song.pictureserver.entity.Picture">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="picture_name" property="pictureName" jdbcType="VARCHAR"/>
+        <result column="picture_url" property="pictureUrl" jdbcType="VARCHAR"/>
+        <result column="user_id" property="userId" jdbcType="BIGINT"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP"/>
+
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,picture_name,picture_url,user_id,create_time,modify_time
+    </sql>
+    <select id="selectByUserId" parameterType="java.lang.Long"
+            resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from picture
+        where user_id = #{userId,jdbcType=BIGINT}
+    </select>
+
+    <insert id="insert" parameterType="com.ya.song.pictureserver.entity.Picture" >
+    insert into picture (id, picture_name, picture_url,user_id,create_time,modify_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{pictureName,jdbcType=INTEGER}, #{pictureUrl,jdbcType=VARCHAR},
+      #{userId,jdbcType=BIGINT},now(),now()
+      )
+  </insert>
+
+</mapper>
