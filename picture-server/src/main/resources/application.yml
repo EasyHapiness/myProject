@@ -27,7 +27,7 @@ mybatis:
 eureka:
   client:
     service-url:
-          defaultZone: http://localhost:8082/eureka/
+          defaultZone: http://yasong:yasong@localhost:8082/eureka/
 
 server:
   port: 8084

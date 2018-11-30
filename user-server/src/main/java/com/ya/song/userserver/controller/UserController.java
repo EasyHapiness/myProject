@@ -26,4 +26,12 @@ public class UserController extends BaseController{
 
         return getSuccessResult(userService.findById(id));
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/update/{id}/{name}/{sex}",method = RequestMethod.GET)
+    public Object updateNameById(@PathVariable("id") Long id,@PathVariable("name") String name,@PathVariable("sex") String sex){
+
+        userService.testTranscation(name,id,sex);
+        return getSuccessResult("测试成功！");
+    }
 }

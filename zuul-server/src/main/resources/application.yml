@@ -4,7 +4,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8082/eureka
+      defaultZone: http://yasong:yasong@localhost:8082/eureka
 server:
   port: 8085
 
